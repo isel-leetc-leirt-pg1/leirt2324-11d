@@ -38,6 +38,7 @@ bool a_remove0(int vals[], int size, int to_remove) {
         
 }
 
+
 /**
  * Descrição:
  *    remove o valor "to_remove" do array "vals"
@@ -70,16 +71,9 @@ bool a_remove_ordered(int vals[], int size, int to_remove) {
     return true;
 }
 
-/**
- * Descrição:
- *    remove todas as repetições de valores encontrados em "vals"
- * Retorna:
- *    a nova dimensão do array após a remoção dos repetidos
- */
-int a_remove_reps(int vals[], int size) {
-    printf("TO IMPLEMENT!\n");
-    return 0;
-}
+
+// FUNÇÔES A IMPLEMENTAR NA PRÀTICA DE 18/10
+
 
 /**
  * Descrição:
@@ -101,6 +95,18 @@ void a_rotate_left(int vals[], int size) {
  */
 void a_rotate_right(int vals[], int size) {
     printf("TO IMPLEMENT!\n");
+}
+
+
+/**
+ * Descrição:
+ *    remove todas as repetições de valores encontrados em "vals"
+ * Retorna:
+ *    a nova dimensão do array após a remoção dos repetidos
+ */
+int a_remove_reps(int vals[], int size) {
+    printf("TO IMPLEMENT!\n");
+    return 0;
 }
 
 

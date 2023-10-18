@@ -10,7 +10,7 @@
 #include "arrays.h"
 
 
-#define ARRAY_CAPACITY(a) (sizeof(vals)/sizeof(vals[0]))
+#define ARRAY_CAPACITY(a) (sizeof(a)/sizeof(a[0]))
 
 void show_int_array(int a[], int size, int max_size) {
     printf("[");
@@ -38,8 +38,10 @@ void print_success() {
 
 
 int main() {
+   
     printf("REMOVE REPS TESTS:\n");
-    { // test no repetitions
+    { 
+      // test no repetitions
       int vals[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
       int size = ARRAY_CAPACITY(vals);
       if (a_remove_reps(vals, size) != size) print_error();
@@ -89,5 +91,7 @@ int main() {
         name_compressed(name, result);
         printf("%s\n", result);
     }
+    
+    
     return 0;
 }

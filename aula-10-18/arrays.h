@@ -86,3 +86,6 @@ void a_rotate_right(int vals[], int size);
  */
 bool name_compressed(char orig[], char result[]);
      
+
+
+
