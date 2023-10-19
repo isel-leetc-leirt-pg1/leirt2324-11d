@@ -1,4 +1,9 @@
-#include <stdbool.h>
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#include "arrays.h"
 
 /**
  * Descrição:
@@ -7,9 +12,13 @@
  *    a posição onde o valor foi encontrado
  *    -1 caso o valor não exista no array
  */ 
-int a_search(int nums[], int size, int v);
+int a_search(int nums[], int size, int v) {
+    for(int i= 0; i < size; i++) {
+        if (nums[i] == v) return i;
+    }
+    return -1;
+}
 
- 
 /**
  * Descrição:
  *    remove o valor "to_remove" do array "vals"
@@ -17,7 +26,18 @@ int a_search(int nums[], int size, int v);
  *    true se o valor foi removido
  *    false caso o valor não exista no array
  */
-bool a_remove0(int vals[], int size, int to_remove);
+bool a_remove0(int vals[], int size, int to_remove) {
+    for(int i=0; i < size; ++i) {
+         if (vals[i] == to_remove) {
+             // remove element
+             vals[i] = vals[size - 1];
+             return true;
+         }
+    }
+    return false;
+        
+}
+
 
 /**
  * Descrição:
@@ -27,8 +47,14 @@ bool a_remove0(int vals[], int size, int to_remove);
  *    true se o valor foi removido
  *    false caso o valor não exista no array
  */
-bool a_remove(int vals[], int size, int to_remove);
-   
+bool a_remove(int vals[], int size, int to_remove) {
+    int idx = a_search(vals, size, to_remove);
+    if (idx == -1) return false;
+    // remove element
+    vals[idx] = vals[size - 1];
+    return true;
+}
+
 /**
  * Descrição:
  *    remove o valor "to_remove" do array "vals"
@@ -37,16 +63,17 @@ bool a_remove(int vals[], int size, int to_remove);
  *    true se o valor foi removido
  *    false caso o valor não exista no array
  */
-bool a_remove_ordered(int vals[], int size, int to_remove);
+bool a_remove_ordered(int vals[], int size, int to_remove) {
+    int idx = a_search(vals, size, to_remove);
+    if (idx == -1) return false;
+    // remove element
+    for(int i= idx + 1; i < size; ++i) vals[i-1] = vals[i];
+    return true;
+}
 
-/**
- * Descrição:
- *    remove todas as repetições de valores encontrados em "vals"
- * Retorna:
- *    a nova dimensão do array após a remoção dos repetidos
- */
-int a_remove_reps(int vals[], int size);
-     
+
+// FUNÇÔES A IMPLEMENTAR NA PRÀTICA DE 18/10
+
 
 /**
  * Descrição:
@@ -55,8 +82,9 @@ int a_remove_reps(int vals[], int size);
  * Retorna:
  *    a nova dimensão do array após a remoção dos repetidos
  */
-void a_rotate_left(int vals[], int size);
-   
+void a_rotate_left(int vals[], int size) {
+    printf("TO IMPLEMENT!\n");
+}
 
 /**
  * Descrição:
@@ -65,8 +93,21 @@ void a_rotate_left(int vals[], int size);
  * Retorna:
  *    a nova dimensão do array após a remoção dos repetidos
  */
-void a_rotate_right(int vals[], int size);
-     
+void a_rotate_right(int vals[], int size) {
+    printf("TO IMPLEMENT!\n");
+}
+
+
+/**
+ * Descrição:
+ *    remove todas as repetições de valores encontrados em "vals"
+ * Retorna:
+ *    a nova dimensão do array após a remoção dos repetidos
+ */
+int a_remove_reps(int vals[], int size) {
+    printf("TO IMPLEMENT!\n");
+    return 0;
+}
 
 
 /**
@@ -84,19 +125,7 @@ void a_rotate_right(int vals[], int size);
  *      (tem de ter pelo menos um nome proprio e um apelido com pelo menos dois caracteres)
  * 		"false" caso contrário.
  */
-bool name_compressed(char orig[], char result[]);
-     
-
-/**
- * Descrição:
- *      Procura o valor "to_find" no array "vals", de dimensão "size", usando o algoritmo da pesquisa dicotómica (ou binária)
- *      Neste método o array original é "partido" ao meio e o elemento central é comparado
- *      com a valor aa encontrar. Se o elemento do meio não corresponde ao valor a aencontrar então
- *      continua-se a pesquisa na metade inferior ou superior, consoante o elemento a encontrar seja inferior
- *      ou superior ao elemento do "meio"
- * Retorno:
- *    a posição onde o valor foi encontrado,
- *    ou -1 caso o valor "to_find" não exista no array
- */
-int a_bin_search(int vals[], int size, int to_find);
-
+bool name_compressed(char orig[], char result[]) {
+    printf("TO IMPLEMENT!\n");
+    return false;
+}

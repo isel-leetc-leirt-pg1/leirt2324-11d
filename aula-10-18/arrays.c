@@ -39,6 +39,8 @@ bool a_remove0(int vals[], int size, int to_remove) {
 }
 
 
+
+
 /**
  * Descrição:
  *    remove o valor "to_remove" do array "vals"
@@ -71,61 +73,29 @@ bool a_remove_ordered(int vals[], int size, int to_remove) {
     return true;
 }
 
-
-// FUNÇÔES A IMPLEMENTAR NA PRÀTICA DE 18/10
-
-
 /**
  * Descrição:
- *    Roda todos os elemmentos do array uma casa para a esquerda
- *    O primeiro elemento passa para último
- * Retorna:
- *    a nova dimensão do array após a remoção dos repetidos
- */
-void a_rotate_left(int vals[], int size) {
-    printf("TO IMPLEMENT!\n");
-}
-
-/**
- * Descrição:
- *    Roda todos os elemmentos do array uma casa para a direita
- *    O último elemento passa para primeiro.
- * Retorna:
- *    a nova dimensão do array após a remoção dos repetidos
- */
-void a_rotate_right(int vals[], int size) {
-    printf("TO IMPLEMENT!\n");
-}
-
-
-/**
- * Descrição:
- *    remove todas as repetições de valores encontrados em "vals"
- * Retorna:
- *    a nova dimensão do array após a remoção dos repetidos
- */
-int a_remove_reps(int vals[], int size) {
-    printf("TO IMPLEMENT!\n");
-    return 0;
-}
-
-
-/**
- * Descrição:
- *		Gera o formato do nome que corresponde ao último apelido 
- *      (primeira letra em maíuscula e as restantes em minusculas),
- * 		seguido da primeira letra (em maíuscula) do primeiro nome, seguido de ponto.
- * 		Assuma que não existem espaços iniciais e finais na string original.
- * 		Ex: se o nome for "Carlos  Manuel  SANtos" ou resultado é "Santos C."
- * Parâmetros:
- * 		"orig": nome a converter
- * 		"result": o nome no formato requerido
+ *      Procura o valor "to_find" no array "vals", de dimensão "size", usando o algoritmo da pesquisa dicotómica (ou binária)
+ *      Neste método o array original é "partido" ao meio e o elemento central é comparado
+ *      com a valor aa encontrar. Se o elemento do meio não corresponde ao valor a aencontrar então
+ *      continua-se a pesquisa na metade inferior ou superior, consoante o elemento a encontrar seja inferior
+ *      ou superior ao elemento do "meio"
  * Retorno:
- * 		"true" se o nome for passível de conversão 
- *      (tem de ter pelo menos um nome proprio e um apelido com pelo menos dois caracteres)
- * 		"false" caso contrário.
+ *    a posição onde o valor foi encontrado,
+ *    ou -1 caso o valor "to_find" não exista no array
  */
-bool name_compressed(char orig[], char result[]) {
-    printf("TO IMPLEMENT!\n");
-    return false;
+int a_bin_search(int vals[], int size, int to_find) {
+    int first = 0, last = size -1;
+    
+    while (first <= last) {
+        int middle = (first + last) /2;
+        //printf("middle=%d, vals[middle]=%d\n", middle, vals[middle]);
+        if (vals[middle] < to_find) first = middle + 1;
+        else if (vals[middle] > to_find) last = middle - 1;
+        else return middle;
+    }
+    return -1;
 }
+
+
+

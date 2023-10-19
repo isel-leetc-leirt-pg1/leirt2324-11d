@@ -87,16 +87,5 @@ void a_rotate_right(int vals[], int size);
 bool name_compressed(char orig[], char result[]);
      
 
-/**
- * Descrição:
- *      Procura o valor "to_find" no array "vals", de dimensão "size", usando o algoritmo da pesquisa dicotómica (ou binária)
- *      Neste método o array original é "partido" ao meio e o elemento central é comparado
- *      com a valor aa encontrar. Se o elemento do meio não corresponde ao valor a aencontrar então
- *      continua-se a pesquisa na metade inferior ou superior, consoante o elemento a encontrar seja inferior
- *      ou superior ao elemento do "meio"
- * Retorno:
- *    a posição onde o valor foi encontrado,
- *    ou -1 caso o valor "to_find" não exista no array
- */
-int a_bin_search(int vals[], int size, int to_find);
+
 
