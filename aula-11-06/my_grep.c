@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+#include <unistd.h>
+#include <ctype.h>
 
 
 #define MAX_LINE 1024
+#define MAX_PATH 256
+#define MAX_WORD 32
 
 /**
  * Descrição:
@@ -19,6 +22,7 @@
 int getl(char line[], int size) {
     int c;
     int i=0;
+   
     while(i < size -1 && (c = getchar()) != '\n' && c != EOF) {
         line[i] = c;
         ++i;
@@ -28,6 +32,7 @@ int getl(char line[], int size) {
       // discard remaining chars in line
       while(getchar() != '\n');
     }
+   
     line[i] = 0;
     return i;
 }
@@ -44,28 +49,63 @@ int getl(char line[], int size) {
 bool find_substr(char str[], char sub[]) {
     int i = 0, j;
     
+    
     while(str[i] != 0) {
         j = 0;
         
-        while(str[i+j] == sub[j] && sub[j] != 0) {
+        while(tolower(str[i+j]) == tolower(sub[j]) && sub[j] != 0) {
             j++;
         }
+        
+        if (sub[j] == 0) // ocorreu match
+            return true;
+        
+        ++i;
          
     }
-    // FALTA COMPLETAR!
-    
+
     return false;
 }
 
 
+
 int main(int argc, char *argv[]) {
-    char line[MAX_LINE];
-     
-    // get filename
-    char filename[128];
-    printf("ficheiro? ");
    
- 
-      
-      
+    // get filename
+    char filename[MAX_PATH];
+    printf("ficheiro? ");
+    //scanf("%s", filename);
+    getl(filename, MAX_PATH);
+    
+    
+    // open the file
+    FILE *file = fopen(filename, "r");
+    
+    if (file == NULL) {
+        printf("erro ao abrir o ficheiro '%s'\n", filename);
+        return 1;
+    }
+    // get word to find
+    
+   
+    char word[MAX_WORD+1];
+    
+    // faltava este printf
+    // o programa estava simplesmente à espera de ler a palavra...
+    printf("palavra? ");
+    getl(word, MAX_WORD+1);
+    
+    int line_number = 0;
+    char line[MAX_LINE];
+    
+    while (fgets(line, MAX_LINE, file) != NULL) {
+        line_number++;
+        if (find_substr(line, word)) {
+            printf("%3d: %s", line_number, line);
+        }
+    }
+    
+    fclose(file);
+    
+    return 0;
 }
