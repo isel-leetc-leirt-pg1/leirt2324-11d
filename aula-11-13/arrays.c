@@ -98,6 +98,31 @@ int a_bin_search(int vals[], int size, int to_find) {
 }
 
 
+/**
+ * Descrição:
+ *      inverte os elementos de um array de inteiros
+ *      trocando o primeiro com o último, o segundo com
+ *      o penultimo e assim sucessivamente...
+ * Retorno:
+ *      Nada
+ */
+void invert_array(int vals[], int size) {
+    for(int i=0, j = size -1; i < j; ++i, --j) {
+        int tmp = vals[i];
+        vals[i] = vals[j];
+        vals[j] = tmp;
+    }
+}
+
+/**
+ * Descrição:
+ *  Ordena um arrsy de inteiros usando o algoritmo de Position Sort:
+ *  Procura-se o maior elemento que troca de posição com o último elemento
+ *  Faz-se o mesmo para todos os subarrays consecutivos
+ * Retorno:
+ *  Nada
+ *  
+ */ 
 void a_position_sort(int vals[], int size) {
     for(int i= size-1; i > 0; --i) {
         int ibig = 0, big = vals[0];
@@ -111,6 +136,7 @@ void a_position_sort(int vals[], int size) {
         vals[i] = big;
     }
 }
+
 
 
 

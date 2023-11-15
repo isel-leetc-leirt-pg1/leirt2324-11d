@@ -8,7 +8,7 @@
 
 
 
-#define MAX_SIZE 20
+#define MAX_SIZE 100
 
 // constroi o array com valores aleatórios entre 1 e lim
 void array_build(int a[], int size, int lim) {
@@ -39,6 +39,8 @@ bool a_is_sorted(int a[], int size) {
     return true;
 }
 
+ 
+
 int main() {
     
     int v[MAX_SIZE];
@@ -53,6 +55,7 @@ int main() {
     
     if (a_is_sorted(v, MAX_SIZE)) {
         printf("OK!\n");
+        
         show_array(v, MAX_SIZE);
     }
     else {
