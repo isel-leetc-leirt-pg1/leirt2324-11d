@@ -8,7 +8,7 @@
 
 
 
-#define MAX_SIZE 100
+#define MAX_SIZE 10000000 
 
 // constroi o array com valores aleatórios entre 1 e lim
 void array_build(int a[], int size, int lim) {
@@ -39,7 +39,18 @@ bool a_is_sorted(int a[], int size) {
     return true;
 }
 
- 
+
+int cmp_int(const void *v1, const void *v2) {
+    int i1 = *((int *) v1);
+    int i2 = *((int *) v2);
+    return i1 - i2;
+}
+
+
+void quick_sort(int vals[], int size) {
+    qsort(vals, size, sizeof(int), cmp_int);
+}
+
 
 int main() {
     
@@ -50,13 +61,12 @@ int main() {
     srand(time(NULL));
     
     array_build(v, MAX_SIZE, 100);
-    show_array(v, MAX_SIZE);
-    a_insertion_sort(v, MAX_SIZE);
+    //show_array(v, MAX_SIZE);
+    quick_sort(v, MAX_SIZE);
     
     if (a_is_sorted(v, MAX_SIZE)) {
         printf("OK!\n");
-        
-        show_array(v, MAX_SIZE);
+        //show_array(v, MAX_SIZE);
     }
     else {
         printf("FAIL!\n");
