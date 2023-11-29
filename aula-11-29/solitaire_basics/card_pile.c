@@ -13,7 +13,7 @@ void card_init(card_t *c, suits_t s, int v) {
 
 
 void pile_shuffle(card_pile_t *p) {
-    
+    // TO IMPLEMENT
 }
 
 
