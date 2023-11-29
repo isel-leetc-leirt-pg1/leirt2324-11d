@@ -12,7 +12,7 @@ void card_init(card_t *c, suits_t s, int v) {
 }
 
 
-void pile_shuffle(pile_card_t *p) {
+void pile_shuffle(card_pile_t *p) {
     
 }
 

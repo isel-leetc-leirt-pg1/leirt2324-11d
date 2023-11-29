@@ -35,16 +35,15 @@ void init() {
     
     card_pile_t deck;
     
-    pile_init_full(&deck);
+    pile_init_full(&deck, true);
     
     int x, y; // next card coordinates
-    
  
     y= CARD_MARGIN; 
     for (int s = Hearts ; s <= Spades; ++s) {  // for each suit
         
         x= CARD_MARGIN;
-        for(int v = 0; v < NVALUES; ++v) {
+        for(int v = 0; v < NVALUES; ++v) { // for all suit values
             card_t card;
        
             if (!pile_pop(&deck, &card)) {
@@ -66,7 +65,6 @@ int main() {
     graph_init2("Decks", WINDOW_WIDTH, WINDOW_HEIGHT);
   
     init();
-  
    
     graph_start();
     return 0;
