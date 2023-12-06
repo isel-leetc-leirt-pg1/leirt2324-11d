@@ -50,4 +50,3 @@ bool pile_pop(card_pile_t *p, card_t *card) {
 
  
 
-
